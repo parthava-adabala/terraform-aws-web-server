@@ -10,3 +10,16 @@ Infrastructure
 - EC2 Instance: t2.micro Ubuntu with Apache2, serving a "Hello World" page.
 - Elastic IP: Static public IP for the EC2 instance.
 
+Setup
+1.  Secure AWS credentials: Replace hardcoded access_key and secret_key in main.tf with environment variables
+2.  Initialize Terraform: terraform init
+3.  Deploy: terraform apply
+
+Usage
+1. Access the web server at http://<public-ip> (output by Terraform)
+2. SSH into the instance: ssh -i /path/to/main-key.pem ubuntu@<public-ip>
+3. Destroy resources: terraform destroy
+
+Security Notes
+- Avoid hardcoded credentials in main.tf.
+- Restrict SSH access to your IP (replace 0.0.0.0/0 with YOUR_IP/32).
